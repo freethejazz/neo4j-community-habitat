@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp -r {{pkg.path}}/neo4j/ {{pkg.svc_var_path}}
+chown -R hab:hab {{pkg.svc_var_path}}
+

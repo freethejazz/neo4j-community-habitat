@@ -1,0 +1,13 @@
+#!/bin/bash
+
+exec 2>&1
+
+export JAVA_HOME=$(hab pkg path core/jre8)
+
+#Copy over config
+cp {{pkg.svc_config_path}}/* {{pkg.svc_var_path}}/neo4j/conf
+
+cd {{pkg.svc_var_path}}/neo4j
+
+exec bin/neo4j console
+
