@@ -3,3 +3,11 @@
 cp -r {{pkg.path}}/neo4j/ {{pkg.svc_var_path}}
 chown -R hab:hab {{pkg.svc_var_path}}
 
+#Link config
+rm -rf {{pkg.svc_var_path}}/neo4j/conf
+ln -s {{pkg.svc_config_path}} {{pkg.svc_var_path}}/neo4j/conf
+
+#Link data
+rm -rf {{pkg.svc_var_path}}/neo4j/data
+ln -s {{pkg.svc_data_path}} {{pkg.svc_var_path}}/neo4j/data
+
